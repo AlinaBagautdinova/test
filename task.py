@@ -31,7 +31,7 @@ data['status'] = data['status'].str.lower()
 data['document'] = data['document'].str.lower()
 
 # Заполняем пропущенные значения в столбце 'document' 
-# Если известна дата получения оригинила, то в столбце 'document' ставим значение 'оригинал'
+# Если известна дата получения оригинала, то в столбце 'document' ставим значение 'оригинал'
 # В остальных случаях заполняем значением 'нет'
 data.loc[(data.document.isnull()) & (data.receiving_date.notnull()), 'document'] = 'оригинал'
 data['document'] = data['document'].fillna('нет')
